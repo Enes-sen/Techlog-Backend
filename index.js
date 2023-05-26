@@ -6,9 +6,9 @@ const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 const bodyParser = require("body-parser");
 const env = require("dotenv");
-env.config({ path: "./.env/.env" });
+env.config({ path: "./.env" });
 const app = express();
-const port = process.env.PORT || 3200;
+const port = process.env.PORT;
 app.use(cors({ origin: "*" }));
 app.use((err, req, res, next) => {
   if (err instanceof multer.MulterError) {
