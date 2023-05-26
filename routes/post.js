@@ -13,7 +13,7 @@ const {
 router.get("/", (req, res) => {
   res.json({ message: "welcome to the posts service layer" });
 });
-router.use("/commets",comments);
+router.use("/comments",comments);
 router.get("/all", getAll);
 router.get("/one/:id", getOne);
 
