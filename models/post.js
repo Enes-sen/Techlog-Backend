@@ -5,15 +5,10 @@ const PostSchema = new Schema({
     imageUrl:{
         type: String,
     },
-    title : {
-        type : String,
-        required:[true,"Please provide a title"],
-        minlength : [5,"Please provide title at least 10 characters"]
-    },
     content : {
         type : String,
         required : [true,"Please provide a content"],
-        minlength : [10,"Please provide content at least 20 characters"]
+        minlength : [1,"Please provide content at least 1 characters"]
     },
     createdAt : {
         type : Date,
