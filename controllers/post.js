@@ -98,11 +98,7 @@ const addlike = async (req, res) => {
     try {
       const post = await Post.findById(id);
   
-      if (post.user.toString() === userid) {
-        return res.json({
-          success: false,
-          message: "Post sahipleri kendi postlarını beğenemezler. Lütfen başka bir post için deneyin.",
-        });
+      
       }
   
       if (!post.likes.includes(userid)) {
