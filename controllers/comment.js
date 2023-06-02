@@ -63,12 +63,6 @@ const addCommentLike = async (req, res) => {
 
   try {
     const comment = await Comment.findById(id);
-
-    if (comment.user.toString() === userid) {
-      return res.json({
-        success: false,
-        message: "Kendi yorumlarınızı beğenemezsiniz.",
-      });
     }
 
     if (!comment.likes.includes(userid)) {
