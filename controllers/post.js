@@ -93,37 +93,34 @@ const deleteOne = async (req,res)=>{
     
 }
 const addlike = async (req, res) => {
-    const { id, userid } = req.params;
-  
-    try {
-      const post = await Post.findById(id);
-  
-      
-      }
-  
-      if (!post.likes.includes(userid)) {
-        post.likes.push(userid);
-        post.likeCount = post.likes.length;
-        await post.save();
-  
-        return res.json({
-          success: true,
-          message: "Beğeni eklendi.",
-        });
-      } else {
-        return res.json({
-          success: false,
-          message: "Bu kullanıcı zaten beğeni yapmış.",
-        });
-      }
-    } catch (err) {
-      console.log(err.message);
+  const { id, userid } = req.params;
+
+  try {
+    const post = await Post.findById(id);
+
+    if (!post.likes.includes(userid)) {
+      post.likes.push(userid);
+      post.likeCount = post.likes.length;
+      await post.save();
+
+      return res.json({
+        success: true,
+        message: "Beğeni eklendi.",
+      });
+    } else {
       return res.json({
         success: false,
-        message: err.message,
+        message: "Bu kullanıcı zaten beğeni yapmış.",
       });
     }
-  };
+  } catch (err) {
+    console.log(err.message);
+    return res.json({
+      success: false,
+      message: err.message,
+    });
+  }
+};
   const deletelike = async (req, res) => {
     const { id, userid } = req.params;
     try {
