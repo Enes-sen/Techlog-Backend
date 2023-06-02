@@ -63,7 +63,6 @@ const addCommentLike = async (req, res) => {
 
   try {
     const comment = await Comment.findById(id);
-    }
 
     if (!comment.likes.includes(userid)) {
       comment.likes.push(userid);
