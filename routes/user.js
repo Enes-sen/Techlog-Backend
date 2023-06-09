@@ -11,11 +11,11 @@ router.get("/", (req, res) => {
 router.post("/register", userController.register);
 router.post("/login", userController.login);
 router.get("/logout", userController.logout);
-router.get("/user/:id", userController.finduserbyId);
-router.post("/sendmail", userController.sendmail);
+router.get("/user/:id", userController.findUserById);
+router.post("/sendmail", userController.sendMail);
 router.get('/public/uploads/:filename', userController.getUserImage);
 router.get("/All",userController.getAll);
-router.put("/profilimg_upload/:id", upload.single("image"), userController.uploadphoto);
+router.put("/profilimg_upload/:id", upload.single("image"), userController.uploadPhoto);
 router.post("/forgotpassword", userController.forgotPassword);
 router.put("/resetpassword", userController.changePassword);
 
