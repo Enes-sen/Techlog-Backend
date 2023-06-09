@@ -293,7 +293,7 @@ const getUserImage = (req, res) => {
   res.sendFile(imagePath);
 };
 
-const getAllUsers = async (req, res) => {
+const getAll = async (req, res) => {
   try {
     const users = await User.find({});
     res.json({
@@ -317,7 +317,7 @@ module.exports = {
   changePassword,
   logout,
   getUserImage,
-  getAllUsers,
+  getAll,
   sendMail,
   uploadPhoto,
 };
