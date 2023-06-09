@@ -287,6 +287,22 @@ const getUserImage = (req, res) => {
   const imagePath = path.join(__dirname, '../public/uploads', fileName);
   res.sendFile(imagePath);
 };
+const getAll = async (req,res)=>{
+  try{
+    const users = await User.find({});
+    res.json({
+      success:true,
+      users
+    });
+  } catch(err)
+  {
+    console.log("err message:"err.message);
+    res.json({
+      success:false,
+      message:err.mesage
+    })
+  }
+}
 module.exports = {
   register,
   login,
@@ -295,6 +311,7 @@ module.exports = {
   changePassword,
   logout,
   getUserImage,
+  getAll,
   sendmail,
   uploadphoto,
 };
